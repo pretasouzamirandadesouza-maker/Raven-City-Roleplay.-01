@@ -40,6 +40,7 @@ android {
 }
 
 dependencies {
+    implementation files("libs/ini4j-0.5.4.jar")
     implementation project(':autoimageslider')
     implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 
