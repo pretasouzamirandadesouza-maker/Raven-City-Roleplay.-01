@@ -69,5 +69,3 @@ task copyLibs(type: Copy) {
     into 'libs'
 }
 
-apply from: 'https://raw.githubusercontent.com/smarteist/bintrayUpload/master/install.gradle'
-apply from: 'https://raw.githubusercontent.com/smarteist/bintrayUpload/master/bintray.gradle'
