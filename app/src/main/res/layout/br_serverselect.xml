@@ -36,8 +36,8 @@
                 <com.tuyenmonkey.mkloader.MKLoader
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    app:mk_color="#ffffff"
-                    app:mk_type="FishSpinner" />
+                   
+                    />
             </FrameLayout>
         </LinearLayout>
     </LinearLayout>

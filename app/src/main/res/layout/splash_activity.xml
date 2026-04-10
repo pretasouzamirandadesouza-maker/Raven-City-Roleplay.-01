@@ -9,8 +9,8 @@
     <com.tuyenmonkey.mkloader.MKLoader
         android:layout_width="55.0dip"
         android:layout_height="55.0dip"
-        app:mk_color="#ffffffff"
-        app:mk_type="FishSpinner"
+       
+       
         android:layout_gravity="center"
         android:layout_marginTop="295dp"/>
 
