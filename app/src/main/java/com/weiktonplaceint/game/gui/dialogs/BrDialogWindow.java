@@ -18,7 +18,6 @@ import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
@@ -29,7 +28,6 @@ import com.nvidia.devtech.CustomEditText;
 import com.weiktonplaceint.game.R;
 import com.nvidia.devtech.NvEventQueueActivity;
 import com.weiktonplaceint.game.gui.util.Utils;
-import com.tuyenmonkey.mkloader.model.Line;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
@@ -62,7 +60,6 @@ public class BrDialogWindow {
     TextView textView2;
     Activity aactivity;
     int mCurrentDialogId;
-    LinearLayout pon;
 
     public BrDialogWindow (Activity activity) {
         aactivity = activity;
@@ -84,14 +81,12 @@ public class BrDialogWindow {
         textPaint.setTextSize(textView.getTextSize());
         textPaint.setTypeface(textView.getTypeface());
         for (int i = 0; i < strArr.length; i++) {
-            fArr[i] = new StaticLayout(Utils.transfromColors(strArr[i]), textPaint, 10000, Layout.Alignment.ALIGN_NORMAL, 1.0f, 0.0f, false).getLineWidth(0) + 5.0f;
         }
         return fArr;
     }
 
     private TextView createButtonFromOrig(TextView textView, boolean z, boolean z2) {
         TextView textView2 = new TextView(this.mActivity);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
         if (z) {
             layoutParams.topMargin = NvEventQueueActivity.dpToPx(6.0f, this.mActivity);
         }
@@ -233,7 +228,6 @@ public class BrDialogWindow {
             this.mEditText.getEditableText().clear();
             //this.mEditText.setTransformationMethod(PasswordTransformationMethod.getInstance());
         } else if (i == 2) {
-            LinearLayout linearLayout = aactivity.findViewById(R.id.dw_header);
             aactivity.findViewById(R.id.dw_scroll_info).setVisibility(View.GONE);
             this.mEditText.setVisibility(View.GONE);
             if (!z3) {
@@ -275,7 +269,6 @@ public class BrDialogWindow {
                     }
                 }
                 final View findViewById = aactivity.findViewById(R.id.dw_scroll_root);
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) findViewById.getLayoutParams();
                 layoutParams.width = ((int) f) + NvEventQueueActivity.dpToPx(54.0f, this.mActivity);
                 if (z2) {
                     layoutParams.width = 0;
@@ -292,7 +285,6 @@ public class BrDialogWindow {
                 }
                 findViewById.setLayoutParams(layoutParams);
                 ViewGroup viewGroup = (ViewGroup) aactivity.findViewById(R.id.dw_root);
-                LinearLayout linearLayout2 = (LinearLayout) aactivity.findViewById(R.id.dw_scroll_layout);
                 TextView textView8 = textView6;
                 viewGroup.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
                     @Override
@@ -318,16 +310,12 @@ public class BrDialogWindow {
                             if (strArr != null) {
                                 for (int i7 = 0; i7 < strArr.length; i7++) {
                                     TextView textView9 = (TextView) linearLayout.getChildAt(i7);
-                                    LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) textView9.getLayoutParams();
                                     layoutParams4.weight = 1.0f - fArr2[i7];
                                     textView9.setLayoutParams(layoutParams4);
                                 }
                             }
                             for (int i8 = 0; i8 < linearLayout2.getChildCount(); i8++) {
-                                if (linearLayout2.getChildAt(i8) instanceof LinearLayout) {
-                                    LinearLayout linearLayout3 = (LinearLayout) linearLayout2.getChildAt(i8);
                                     for (int i9 = 0; i9 < linearLayout3.getChildCount(); i9++) {
-                                        LinearLayout.LayoutParams layoutParams5 = (LinearLayout.LayoutParams) linearLayout3.getChildAt(i9).getLayoutParams();
                                         layoutParams5.weight = 1.0f - fArr2[i9];
                                         linearLayout3.getChildAt(i9).setLayoutParams(layoutParams5);
                                     }
@@ -340,13 +328,10 @@ public class BrDialogWindow {
                 int i6 = 0;
                 while (i6 < strArr2.length) {
                     if (z2) {
-                        LinearLayout linearLayout3 = new LinearLayout(this.mActivity);
-                        LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-1, -2);
                         if (i6 >= 1) {
                             layoutParams2.topMargin = NvEventQueueActivity.dpToPx(6.0f, this.mActivity);
                         }
                         linearLayout3.setLayoutParams(layoutParams2);
-                        linearLayout3.setOrientation(LinearLayout.HORIZONTAL);
                         linearLayout3.setPadding(textView8.getPaddingLeft(), textView8.getPaddingTop(), textView8.getPaddingRight(), textView8.getPaddingBottom());
                         linearLayout3.setBackground(ResourcesCompat.getDrawable(this.mActivity.getResources(), R.drawable.br_list_inactive, null));
                         linearLayout2.addView(linearLayout3);
